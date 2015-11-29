@@ -210,6 +210,7 @@ install_packages() {
 			ntp vim screen htop mariadb-server mariadb-common libmariadbclient-dev \
 			libxslt1.1 libxslt1-dev redis-server libssl-dev libcrypto++-dev postfix nginx \
 			supervisor python-pip fontconfig libxrender1 libxext6 xfonts-75dpi xfonts-base nodejs npm
+		run_cmd sudo pip install python-ldap
 
 		if [ $OS_VER == "precise" ]; then
 			run_cmd sudo apt-get install -y libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
@@ -380,6 +381,7 @@ install_bench() {
 		exit 1
 	fi
 	run_cmd sudo $PIP install -e /home/$FRAPPE_USER/bench-repo
+	
 }
 
 setup_bench() {
@@ -401,6 +403,8 @@ setup_bench() {
 		run_cmd bash -c "cd /home/$FRAPPE_USER/frappe-bench && bench setup production $FRAPPE_USER"
 	fi
 	chown $FRAPPE_USER /home/$FRAPPE_USER/frappe-bench/logs/*
+	
+	run_cmd sudo bench get-app frappe_ldap https://github.com/saurabh6790/frappe_ldap.git
 }
 
 add_user() {

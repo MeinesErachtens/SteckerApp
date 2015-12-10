@@ -1,13 +1,19 @@
 Accounts
-CRM
 Buying
-Projects
 Selling
 Setup
-HR
-Manufacturing
 Stock
-Support
 Utilities
 Shopping Cart
 Hub Node
+
+Noch einzuordnen:
+Projects
+Support
+
+Unterschied Buying / Shopping Cart ?
+
+Nicht benötigt:
+CRM				/Customer-Relationship-Management
+HR
+Manufacturing
